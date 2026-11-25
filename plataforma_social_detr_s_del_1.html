@@ -1,0 +1,1285 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detrás del 1% | Espacio de Bienestar Estudiantil</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,300;0,400;0,500;0,700;1,400&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            lilacLight: '#F3EEF8',
+                            lilac: '#E4D5F3',
+                            lilacDark: '#9D7AC7',
+                            purple: '#6B409E',
+                            purpleDeep: '#4A2875',
+                            cream: '#FDFBF7',
+                            sageLight: '#F0F5F1',
+                            sage: '#8DAA91',
+                            sageDark: '#4A6950',
+                            warmWhite: '#FDFCFD',
+                            coralSoft: '#F7D6D0'
+                        }
+                    },
+                    fontFamily: {
+                        playfair: ['"Playfair Display"', 'serif'],
+                        sans: ['"DM Sans"', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- Font Awesome Icons CDN -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        body {
+            font-family: 'DM Sans', sans-serif;
+            background-color: #FDFBF7;
+            color: #2D2735;
+        }
+
+        .font-playfair {
+            font-family: 'Playfair Display', serif;
+        }
+
+        /* Ambient Glow & Card Styles */
+        .glass-card {
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(228, 213, 243, 0.6);
+        }
+
+        .glow-hover {
+            transition: all 0.3s ease;
+        }
+        .glow-hover:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 30px -8px rgba(157, 122, 199, 0.25);
+        }
+
+        /* Breathing Circle Animation */
+        @keyframes breatheAnimation {
+            0%, 100% { transform: scale(1); opacity: 0.8; }
+            50% { transform: scale(1.45); opacity: 1; }
+        }
+        .breathe-active {
+            animation: breatheAnimation 8s infinite ease-in-out;
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #F3EEF8;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #C4B1DC;
+            border-radius: 999px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #9D7AC7;
+        }
+    </style>
+</head>
+<body class="antialiased text-gray-800 bg-brand-cream selection:bg-brand-lilac selection:text-brand-purpleDeep">
+
+    <!-- Header & Navigation -->
+    <header class="sticky top-0 z-40 bg-brand-warmWhite/90 backdrop-blur-md border-b border-brand-lilac/40 transition-all">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+            <!-- Brand Logo Header -->
+            <a href="#" class="flex items-center gap-3 group">
+                <!-- SVG Logo replicating 'Detrás del 1%' badge -->
+                <div class="relative w-12 h-12 flex items-center justify-center transition-transform group-hover:scale-105">
+                    <svg viewBox="0 0 200 160" class="w-full h-full drop-shadow-sm">
+                        <!-- Cloud Background -->
+                        <path d="M 40,80 C 20,80 10,60 25,45 C 10,30 30,10 55,20 C 70,5 110,5 125,20 C 145,5 175,20 170,45 C 190,55 185,85 165,95 C 180,120 150,145 125,135 C 105,150 65,145 50,130 C 30,140 10,115 25,95 C 10,90 20,80 40,80 Z" fill="#FFFFFF" stroke="#E4D5F3" stroke-width="6"/>
+                        <!-- Ribbon Top Right -->
+                        <path d="M 145,25 Q 160,15 175,25 Q 165,40 145,25 Z" fill="#B2CEFE"/>
+                        <!-- Curved Swoosh -->
+                        <path d="M 25,105 Q 100,140 175,100" fill="none" stroke="#DCD0EA" stroke-width="8" stroke-linecap="round"/>
+                        <!-- 1% Text -->
+                        <text x="50%" y="105" text-anchor="middle" font-family="'DM Sans', sans-serif" font-weight="900" font-size="78" fill="#7B92E5" stroke="#FFFFFF" stroke-width="4">1%</text>
+                        <text x="50%" y="45" text-anchor="middle" font-family="'DM Sans', sans-serif" font-weight="800" font-size="24" fill="#3D2963">Detrás del</text>
+                        <!-- Yellow Star -->
+                        <polygon points="35,90 39,100 50,100 41,107 44,118 35,111 26,118 29,107 20,100 31,100" fill="#FFD166"/>
+                    </svg>
+                </div>
+                <div>
+                    <span class="block font-playfair font-bold text-xl tracking-tight text-brand-purpleDeep leading-none">Detrás del 1%</span>
+                    <span class="text-xs text-brand-sageDark font-medium">Acompañamiento Estudiantil</span>
+                </div>
+            </a>
+
+            <!-- Desktop Nav Links -->
+            <nav class="hidden md:flex items-center space-x-6 text-sm font-medium text-gray-700">
+                <a href="#checkin" class="hover:text-brand-purple transition-colors">Check-in</a>
+                <a href="#asistente" class="hover:text-brand-purple transition-colors">Asistente IA</a>
+                <a href="#impulso" class="hover:text-brand-purple transition-colors">Un Pequeño Impulso</a>
+                <a href="#temporizador" class="hover:text-brand-purple transition-colors">Un Mensaje para Ti</a>
+                <a href="#autocuidado" class="hover:text-brand-purple transition-colors">Autocuidado</a>
+                <a href="#seguimiento" class="hover:text-brand-purple transition-colors">Mi Registro</a>
+                <a href="#ayuda" class="px-4 py-2 rounded-full bg-brand-coralSoft/60 text-red-900 font-semibold hover:bg-brand-coralSoft transition-all flex items-center gap-1.5 text-xs">
+                    <i class="fa-solid fa-heart-pulse text-red-600"></i> Ayuda Perú
+                </a>
+            </nav>
+
+            <!-- Mobile Menu Button -->
+            <button id="mobile-menu-btn" class="md:hidden text-gray-700 hover:text-brand-purple p-2 text-xl" aria-label="Abrir Menú">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+        </div>
+
+        <!-- Mobile Nav Menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-brand-warmWhite border-b border-brand-lilac px-6 py-4 space-y-3 font-medium">
+            <a href="#checkin" class="block text-gray-700 hover:text-brand-purple">Check-in Emocional</a>
+            <a href="#asistente" class="block text-gray-700 hover:text-brand-purple">Asistente Conversacional IA</a>
+            <a href="#impulso" class="block text-gray-700 hover:text-brand-purple">Recursos Audiovisuales</a>
+            <a href="#temporizador" class="block text-gray-700 hover:text-brand-purple">Temporizador & Frases</a>
+            <a href="#autocuidado" class="block text-gray-700 hover:text-brand-purple">Espacio de Autocuidado</a>
+            <a href="#seguimiento" class="block text-gray-700 hover:text-brand-purple">Mi Registro Emocional</a>
+            <a href="#ayuda" class="block text-red-700 font-semibold">Líneas de Ayuda Inmediata</a>
+        </div>
+    </header>
+
+    <!-- Hero / Welcome Section -->
+    <section class="relative overflow-hidden py-16 md:py-24 bg-gradient-to-b from-brand-lilacLight/50 via-brand-warmWhite to-brand-cream">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
+            <!-- Hero Logo Display -->
+            <div class="inline-block mb-6 relative">
+                <div class="w-48 h-36 mx-auto sm:w-64 sm:h-48 drop-shadow-lg transition-transform hover:scale-105 duration-300">
+                    <!-- High Fidelity Graphic Render matching user badge -->
+                    <svg viewBox="0 0 320 220" class="w-full h-full">
+                        <defs>
+                            <linearGradient id="numGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                                <stop offset="0%" stop-color="#A5C4F7"/>
+                                <stop offset="50%" stop-color="#7B99EC"/>
+                                <stop offset="100%" stop-color="#5B76C9"/>
+                            </linearGradient>
+                            <filter id="shadow" x="-10%" y="-10%" width="120%" height="120%">
+                                <feDropShadow dx="0" dy="4" stdDeviation="6" flood-color="#7B56AD" flood-opacity="0.15"/>
+                            </filter>
+                        </defs>
+                        <!-- Cloud Outer Shell -->
+                        <path d="M 60,110 C 30,110 20,80 40,60 C 20,40 45,15 80,30 C 100,10 160,10 185,30 C 215,10 260,30 250,65 C 280,80 270,120 240,135 C 260,170 215,200 180,185 C 150,205 90,195 70,175 C 40,190 15,155 35,130 C 15,120 30,110 60,110 Z" fill="#FFFFFF" stroke="#E4D5F3" stroke-width="7" filter="url(#shadow)"/>
+                        
+                        <!-- Top Bow -->
+                        <g transform="translate(210, 20) scale(0.9)">
+                            <path d="M0,20 C-15,0 -25,25 -5,30 C-20,35 -5,50 0,35 C5,50 20,35 5,30 C25,25 15,0 0,20 Z" fill="#B3CBFB" stroke="#4B629A" stroke-width="3"/>
+                            <circle cx="0" cy="27" r="5" fill="#7B99EC"/>
+                        </g>
+
+                        <!-- Sparkles & Stars -->
+                        <polygon points="45,130 50,142 63,142 53,150 57,163 45,154 33,163 37,150 27,142 40,142" fill="#FFD166"/>
+                        <circle cx="235" cy="140" r="4" fill="#C4B1DC"/>
+                        <path d="M220,150 L224,158 L232,162 L224,166 L220,174 L216,166 L208,162 L216,158 Z" fill="#9D7AC7"/>
+                        
+                        <!-- Orbit Ring -->
+                        <ellipse cx="140" cy="135" rx="105" ry="30" fill="none" stroke="#D0C2EB" stroke-width="6" stroke-dasharray="160 20" transform="rotate(-8 140 135)"/>
+
+                        <!-- Header Curved Text -->
+                        <text x="142" y="62" text-anchor="middle" font-family="'DM Sans', sans-serif" font-weight="900" font-size="34" fill="#3D2963" letter-spacing="-0.5">Detrás del</text>
+                        
+                        <!-- 1% Large 3D Gradient Text -->
+                        <text x="145" y="145" text-anchor="middle" font-family="'DM Sans', sans-serif" font-weight="900" font-size="102" fill="url(#numGrad)" stroke="#FFFFFF" stroke-width="8" paint-order="stroke fill">1%</text>
+                    </svg>
+                </div>
+            </div>
+
+            <span class="inline-block px-4 py-1.5 rounded-full bg-brand-lilac/50 text-brand-purpleDeep text-xs font-semibold tracking-wide uppercase mb-4">
+                Proyecto Social de Bienestar Estudiantil · Perú
+            </span>
+
+            <h1 class="font-playfair text-3xl sm:text-5xl lg:text-6xl font-bold text-gray-900 leading-tight mb-6 max-w-4xl mx-auto">
+                “No tienes que poder con todo. <br class="hidden sm:inline">
+                <span class="text-brand-purpleDeep italic">Empieza por escucharte”.</span>
+            </h1>
+
+            <p class="text-base sm:text-lg text-gray-600 max-w-2xl mx-auto mb-8 font-normal leading-relaxed">
+                Tómate un respiro de los parciales, entregas y expectativas. Este es tu espacio seguro para pausar, reconocer cómo te sientes y encontrar pequeñas acciones para tu salud mental universitaria.
+            </p>
+
+            <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+                <a href="#checkin" class="w-full sm:w-auto px-8 py-4 rounded-full bg-brand-purpleDeep text-white font-medium hover:bg-brand-purple transition-all shadow-lg hover:shadow-brand-purple/30 text-center flex items-center justify-center gap-2 group">
+                    <span>Empezar por mí</span>
+                    <i class="fa-solid fa-arrow-down transition-transform group-hover:translate-y-1"></i>
+                </a>
+                <a href="#asistente" class="w-full sm:w-auto px-8 py-4 rounded-full bg-white text-brand-purpleDeep font-medium border border-brand-lilac hover:bg-brand-lilacLight transition-all text-center flex items-center justify-center gap-2">
+                    <i class="fa-solid fa-comment-dots text-brand-purple"></i>
+                    <span>Hablar con el Asistente</span>
+                </a>
+            </div>
+
+            <!-- Subheading Quote Footer -->
+            <p class="mt-12 text-xs sm:text-sm text-brand-sageDark font-medium italic">
+                “Detrás de cada estudiante hay una persona que también necesita ser escuchada.”
+            </p>
+        </div>
+    </section>
+
+    <!-- SECTION 1: Check-in Emocional -->
+    <section id="checkin" class="py-16 bg-white border-y border-brand-lilac/30">
+        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-2xl mx-auto mb-12">
+                <h2 class="font-playfair text-3xl sm:text-4xl font-bold text-brand-purpleDeep mb-3">¿Cómo te sientes hoy?</h2>
+                <p class="text-gray-600 text-sm sm:text-base">Haz clic en la opción que mejor describa tu estado actual. No hay respuestas correctas ni diagnósticos, solo una oportunidad para escucharte.</p>
+            </div>
+
+            <!-- Emotional Cards Grid -->
+            <div class="grid grid-cols-2 sm:grid-cols-4 gap-4 mb-10" id="emotion-grid">
+                <!-- Agotado/a -->
+                <button onclick="selectEmotion('Agotado/a', '😴', 'Sentir que las baterías están en 0% después de largas jornadas de estudio.')" class="emotion-card glass-card p-5 rounded-3xl text-center glow-hover border border-brand-lilac/40 focus:outline-none transition-all">
+                    <div class="text-4xl mb-2">😴</div>
+                    <div class="font-semibold text-gray-800">Agotado/a</div>
+                    <div class="text-xs text-gray-500 mt-1">Cansancio físico o mental</div>
+                </button>
+
+                <!-- Estresado/a -->
+                <button onclick="selectEmotion('Estresado/a', '🤯', 'Tensión por exámenes, tareas acumuladas o falta de tiempo.')" class="emotion-card glass-card p-5 rounded-3xl text-center glow-hover border border-brand-lilac/40 focus:outline-none transition-all">
+                    <div class="text-4xl mb-2">🤯</div>
+                    <div class="font-semibold text-gray-800">Estresado/a</div>
+                    <div class="text-xs text-gray-500 mt-1">Presión y urgencia</div>
+                </button>
+
+                <!-- Desmotivado/a -->
+                <button onclick="selectEmotion('Desmotivado/a', '🌫️', 'Dificultad para encontrarle sentido a lo que estás haciendo hoy.')" class="emotion-card glass-card p-5 rounded-3xl text-center glow-hover border border-brand-lilac/40 focus:outline-none transition-all">
+                    <div class="text-4xl mb-2">🌫️</div>
+                    <div class="font-semibold text-gray-800">Desmotivado/a</div>
+                    <div class="text-xs text-gray-500 mt-1">Falta de energía o chispa</div>
+                </button>
+
+                <!-- Abrumado/a -->
+                <button onclick="selectEmotion('Abrumado/a', '🌊', 'Sentir que todo sucede al mismo tiempo y no sabes por dónde empezar.')" class="emotion-card glass-card p-5 rounded-3xl text-center glow-hover border border-brand-lilac/40 focus:outline-none transition-all">
+                    <div class="text-4xl mb-2">🌊</div>
+                    <div class="font-semibold text-gray-800">Abrumado/a</div>
+                    <div class="text-xs text-gray-500 mt-1">Saturación de pendientes</div>
+                </button>
+
+                <!-- Ansioso/a -->
+                <button onclick="selectEmotion('Ansioso/a', '🫀', 'Inquietud constante sobre el futuro académico o los resultados.')" class="emotion-card glass-card p-5 rounded-3xl text-center glow-hover border border-brand-lilac/40 focus:outline-none transition-all">
+                    <div class="text-4xl mb-2">🫀</div>
+                    <div class="font-semibold text-gray-800">Ansioso/a</div>
+                    <div class="text-xs text-gray-500 mt-1">Incertidumbre o nerviosismo</div>
+                </button>
+
+                <!-- Frustrado/a -->
+                <button onclick="selectEmotion('Frustrado/a', '😣', 'Sentir que tus esfuerzos no rinden los resultados que esperabas.')" class="emotion-card glass-card p-5 rounded-3xl text-center glow-hover border border-brand-lilac/40 focus:outline-none transition-all">
+                    <div class="text-4xl mb-2">😣</div>
+                    <div class="font-semibold text-gray-800">Frustrado/a</div>
+                    <div class="text-xs text-gray-500 mt-1">Sensación de bloqueo</div>
+                </button>
+
+                <!-- Saturado/a -->
+                <button onclick="selectEmotion('Saturado/a', '🫠', 'Demasiada información, pantallas y exigencias académicas.')" class="emotion-card glass-card p-5 rounded-3xl text-center glow-hover border border-brand-lilac/40 focus:outline-none transition-all">
+                    <div class="text-4xl mb-2">🫠</div>
+                    <div class="font-semibold text-gray-800">Saturado/a</div>
+                    <div class="text-xs text-gray-500 mt-1">Necesidad de desconexión</div>
+                </button>
+
+                <!-- Estoy bien -->
+                <button onclick="selectEmotion('Estoy bien', '🌱', 'Un día tranquilo y con energía estable para continuar.')" class="emotion-card glass-card p-5 rounded-3xl text-center glow-hover border border-brand-lilac/40 focus:outline-none transition-all">
+                    <div class="text-4xl mb-2">🌱</div>
+                    <div class="font-semibold text-gray-800">Estoy bien</div>
+                    <div class="text-xs text-gray-500 mt-1">En equilibrio hoy</div>
+                </button>
+            </div>
+
+            <!-- Dynamic Reflection Form (Shows up upon selection) -->
+            <div id="reflection-container" class="hidden bg-brand-lilacLight/40 rounded-3xl p-6 sm:p-8 border border-brand-lilac">
+                <div class="flex items-center gap-3 mb-4">
+                    <span id="selected-emoji" class="text-3xl"></span>
+                    <div>
+                        <h3 class="font-playfair font-bold text-xl text-brand-purpleDeep">Has seleccionado: <span id="selected-emotion-title"></span></h3>
+                        <p id="selected-emotion-desc" class="text-xs sm:text-sm text-gray-600"></p>
+                    </div>
+                </div>
+
+                <div class="space-y-4 text-sm text-gray-700">
+                    <p class="font-medium text-brand-purpleDeep">Reflexiona unos segundos sobre esto (opcional):</p>
+
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <div>
+                            <label class="block text-xs font-semibold text-gray-600 mb-1">¿Desde cuándo te sientes así?</label>
+                            <input type="text" id="ref-time" placeholder="Ej. Desde la semana de parciales..." class="w-full px-4 py-2.5 rounded-xl border border-brand-lilac bg-white text-sm focus:ring-2 focus:ring-brand-purple outline-none">
+                        </div>
+                        <div>
+                            <label class="block text-xs font-semibold text-gray-600 mb-1">¿Qué situación está influyendo más?</label>
+                            <input type="text" id="ref-cause" placeholder="Ej. Un trabajo en grupo, exámenes..." class="w-full px-4 py-2.5 rounded-xl border border-brand-lilac bg-white text-sm focus:ring-2 focus:ring-brand-purple outline-none">
+                        </div>
+                    </div>
+
+                    <div>
+                        <label class="block text-xs font-semibold text-gray-600 mb-1">¿Qué es lo que más necesitas en este momento?</label>
+                        <select id="ref-need" class="w-full px-4 py-2.5 rounded-xl border border-brand-lilac bg-white text-sm focus:ring-2 focus:ring-brand-purple outline-none">
+                            <option value="Dormir o descansar sin culpa">Dormir o descansar sin culpa</option>
+                            <option value="Organizar mis pendientes paso a paso">Organizar mis pendientes paso a paso</option>
+                            <option value="Hablar con alguien y desahogarme">Hablar con alguien y desahogarme</option>
+                            <option value="Un momento de silencio y calma">Un momento de silencio y calma</option>
+                            <option value="Recordar por qué empecé este camino">Recordar por qué empecé este camino</option>
+                        </select>
+                    </div>
+
+                    <div class="pt-2 flex flex-wrap gap-3 items-center justify-between">
+                        <button onclick="saveCheckinLog()" class="px-6 py-2.5 rounded-full bg-brand-purple text-white text-xs sm:text-sm font-semibold hover:bg-brand-purpleDeep transition-all">
+                            Guardar en mi registro privado
+                        </button>
+                        <a href="#asistente" onclick="passToChat()" class="text-xs sm:text-sm text-brand-purple font-semibold hover:underline flex items-center gap-1">
+                            Llevar esta conversación al Asistente IA <i class="fa-solid fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 2: Asistente Conversacional IA -->
+    <section id="asistente" class="py-16 bg-brand-cream">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-8">
+                <span class="text-xs uppercase tracking-widest font-semibold text-brand-sageDark bg-brand-sageLight px-3 py-1 rounded-full">Acompañamiento 24/7</span>
+                <h2 class="font-playfair text-3xl sm:text-4xl font-bold text-brand-purpleDeep mt-2 mb-2">Estoy aquí para escucharte</h2>
+                <p class="text-gray-600 text-sm max-w-xl mx-auto">Un asistente virtual diseñado para apoyarte en momentos de agobio universitario. Conversa libremente y a tu propio ritmo.</p>
+            </div>
+
+            <!-- Chat Interface Box -->
+            <div class="glass-card rounded-3xl shadow-xl border border-brand-lilac overflow-hidden flex flex-col h-[560px]">
+                <!-- Chat Top Bar -->
+                <div class="bg-brand-warmWhite px-6 py-4 border-b border-brand-lilac/50 flex items-center justify-between">
+                    <div class="flex items-center gap-3">
+                        <div class="w-10 h-10 rounded-full bg-brand-lilac/60 flex items-center justify-center text-brand-purpleDeep font-bold">
+                            <i class="fa-solid fa-heart-pulse"></i>
+                        </div>
+                        <div>
+                            <h3 class="font-semibold text-gray-900 text-sm">Asistente Detrás del 1%</h3>
+                            <p class="text-xs text-brand-sageDark flex items-center gap-1">
+                                <span class="w-2 h-2 rounded-full bg-emerald-500 inline-block"></span> En línea · Escucha activa e informal
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Gemini API Settings Button -->
+                    <button onclick="toggleApiKeyModal()" class="text-xs px-3 py-1.5 rounded-full border border-brand-lilac text-brand-purpleDeep hover:bg-brand-lilacLight transition-all flex items-center gap-1">
+                        <i class="fa-solid fa-key"></i> Clave API Gemini
+                    </button>
+                </div>
+
+                <!-- Chat Messages Body -->
+                <div id="chat-messages" class="flex-1 p-4 sm:p-6 overflow-y-auto space-y-4 text-sm">
+                    <!-- Bot Welcome Message -->
+                    <div class="flex gap-3 max-w-md">
+                        <div class="w-8 h-8 rounded-full bg-brand-lilac/70 flex items-center justify-center text-brand-purple text-xs flex-shrink-0 mt-1">
+                            <i class="fa-solid fa-robot"></i>
+                        </div>
+                        <div class="bg-white p-4 rounded-2xl rounded-tl-none border border-brand-lilac/40 shadow-sm text-gray-700 leading-relaxed">
+                            ¡Hola! Qué gusto que te hayas tomado este momento para ti. Sé que la universidad en el Perú puede ser muy exigente y agotadora. ¿Qué tienes en mente o cómo te has sentido en estos días? Te escucho sin juzgarte.
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Suggested Quick Prompts -->
+                <div class="px-4 py-2 bg-brand-warmWhite/70 border-t border-brand-lilac/30 flex gap-2 overflow-x-auto text-xs">
+                    <button onclick="sendQuickPrompt('Siento que la universidad me consume y no tengo energía.')" class="px-3 py-1.5 rounded-full bg-white border border-brand-lilac text-gray-600 hover:border-brand-purple hover:text-brand-purple whitespace-nowrap transition-all">
+                        😴 "Siento que la u me consume..."
+                    </button>
+                    <button onclick="sendQuickPrompt('Tengo un bloqueo enorme para empezar a estudiar.')" class="px-3 py-1.5 rounded-full bg-white border border-brand-lilac text-gray-600 hover:border-brand-purple hover:text-brand-purple whitespace-nowrap transition-all">
+                        🧱 "Tengo un bloqueo académico..."
+                    </button>
+                    <button onclick="sendQuickPrompt('Tengo miedo de no aprobar mis entregas de esta semana.')" class="px-3 py-1.5 rounded-full bg-white border border-brand-lilac text-gray-600 hover:border-brand-purple hover:text-brand-purple whitespace-nowrap transition-all">
+                        😰 "Me abruman las entregas..."
+                    </button>
+                </div>
+
+                <!-- Chat Input Form -->
+                <form id="chat-form" onsubmit="handleChatSubmit(event)" class="p-3 sm:p-4 bg-white border-t border-brand-lilac/50 flex gap-2">
+                    <input type="text" id="chat-input" placeholder="Escribe lo que sientes o lo que te preocupa..." class="flex-1 px-4 py-3 rounded-full border border-brand-lilac bg-brand-cream/40 focus:ring-2 focus:ring-brand-purple text-sm outline-none" required>
+                    <button type="submit" id="chat-send-btn" class="w-11 h-11 rounded-full bg-brand-purpleDeep text-white flex items-center justify-center hover:bg-brand-purple transition-all flex-shrink-0 shadow-md">
+                        <i class="fa-solid fa-paper-plane text-sm"></i>
+                    </button>
+                </form>
+            </div>
+            <p class="text-xs text-gray-500 text-center mt-3">Tus mensajes no se comparten públicamente. Recuerda que este espacio ofrece acompañamiento y escucha, no diagnósticos de salud mental.</p>
+        </div>
+    </section>
+
+    <!-- SECTION 3: Orientación Personalizada Dynamic Recommendation -->
+    <section id="orientacion" class="py-14 bg-white">
+        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-10">
+                <h2 class="font-playfair text-3xl font-bold text-brand-purpleDeep">Orientación & Sugerencias Personalizadas</h2>
+                <p class="text-gray-600 text-sm mt-1">Pequeños pasos prácticos según tu estado de ánimo actual.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6" id="recommendations-container">
+                <!-- Card 1: Pausa Consciente -->
+                <div class="glass-card p-6 rounded-3xl border border-brand-lilac/60 glow-hover flex flex-col justify-between">
+                    <div>
+                        <div class="w-12 h-12 rounded-2xl bg-brand-lilacLight flex items-center justify-center text-brand-purple font-bold text-xl mb-4">
+                            <i class="fa-solid fa-battery-quarter"></i>
+                        </div>
+                        <h3 class="font-bold text-lg text-gray-900 mb-2">Para el Agotamiento</h3>
+                        <p class="text-xs text-gray-600 leading-relaxed mb-4">Si sientes la batería en 0%, la prioridad no es producir más, sino frenar el desgaste. Autorízate 15 minutos sin pantallas.</p>
+                    </div>
+                    <a href="#autocuidado" class="text-xs font-semibold text-brand-purple hover:underline inline-flex items-center gap-1">
+                        Ver técnica de pausa <i class="fa-solid fa-arrow-right"></i>
+                    </a>
+                </div>
+
+                <!-- Card 2: Micro-Tareas -->
+                <div class="glass-card p-6 rounded-3xl border border-brand-lilac/60 glow-hover flex flex-col justify-between">
+                    <div>
+                        <div class="w-12 h-12 rounded-2xl bg-brand-sageLight flex items-center justify-center text-brand-sageDark font-bold text-xl mb-4">
+                            <i class="fa-solid fa-list-check"></i>
+                        </div>
+                        <h3 class="font-bold text-lg text-gray-900 mb-2">Para la Sobrecarga</h3>
+                        <p class="text-xs text-gray-600 leading-relaxed mb-4">Divide tu pendiente principal en la acción más pequeña posible. En lugar de "estudiar todo el tema", lee solo 2 páginas.</p>
+                    </div>
+                    <a href="#temporizador" class="text-xs font-semibold text-brand-sageDark hover:underline inline-flex items-center gap-1">
+                        Probar temporizador suave <i class="fa-solid fa-arrow-right"></i>
+                    </a>
+                </div>
+
+                <!-- Card 3: Regulación de Ansiedad -->
+                <div class="glass-card p-6 rounded-3xl border border-brand-lilac/60 glow-hover flex flex-col justify-between">
+                    <div>
+                        <div class="w-12 h-12 rounded-2xl bg-orange-50 flex items-center justify-center text-orange-500 font-bold text-xl mb-4">
+                            <i class="fa-solid fa-wind"></i>
+                        </div>
+                        <h3 class="font-bold text-lg text-gray-900 mb-2">Para la Ansiedad</h3>
+                        <p class="text-xs text-gray-600 leading-relaxed mb-4">Regresa tu atención al cuerpo cuando sientas la mente acelerada. Realiza 4 ciclos de respiración rítmica guiada.</p>
+                    </div>
+                    <button onclick="openBreathingModal()" class="text-xs font-semibold text-orange-600 hover:underline inline-flex items-center gap-1">
+                        Iniciar respiración <i class="fa-solid fa-arrow-right"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 4: Recursos Audiovisuales ("Un pequeño impulso") -->
+    <section id="impulso" class="py-16 bg-brand-lilacLight/30 border-y border-brand-lilac/40">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-2xl mx-auto mb-12">
+                <span class="text-xs font-bold text-brand-purple uppercase tracking-wider">Recursos Audiovisuales</span>
+                <h2 class="font-playfair text-3xl sm:text-4xl font-bold text-brand-purpleDeep mt-1 mb-3">Un pequeño impulso</h2>
+                <p class="text-gray-600 text-sm">Videos y audios seleccionados especialmente para acompañar tus hábitos de descanso, concentración y bienestar emocional universitario.</p>
+            </div>
+
+            <!-- Video Resources Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Video Item 1: Burnout -->
+                <div class="glass-card rounded-3xl overflow-hidden border border-brand-lilac/60 glow-hover flex flex-col justify-between">
+                    <div>
+                        <div class="relative group cursor-pointer" onclick="playVideoModal('IfnLn3ZN94I', 'Consejos para lidiar con el burnout universitario')">
+                            <img src="https://img.youtube.com/vi/IfnLn3ZN94I/hqdefault.jpg" alt="Burnout Universitario" class="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300" onerror="this.src='https://placehold.co/600x400/9D7AC7/FFFFFF?text=Burnout+Consejos'">
+                            <div class="absolute inset-0 bg-black/30 flex items-center justify-center group-hover:bg-black/20 transition-all">
+                                <div class="w-14 h-14 rounded-full bg-white/90 text-brand-purpleDeep flex items-center justify-center text-xl shadow-lg group-hover:scale-110 transition-transform">
+                                    <i class="fa-solid fa-play ml-1"></i>
+                                </div>
+                            </div>
+                            <span class="absolute top-3 left-3 px-3 py-1 rounded-full bg-red-100 text-red-800 text-xs font-bold">Consejos</span>
+                        </div>
+                        <div class="p-6">
+                            <h3 class="font-bold text-gray-900 text-base mb-2">Consejos para lidiar con el burnout</h3>
+                            <p class="text-xs text-gray-600 leading-relaxed">Estrategias realistas para reconocer el agotamiento académico extremo y prevenir el colapso emocional.</p>
+                        </div>
+                    </div>
+                    <div class="px-6 pb-6 pt-0">
+                        <button onclick="playVideoModal('IfnLn3ZN94I', 'Consejos para lidiar con el burnout universitario')" class="w-full py-2.5 rounded-full bg-brand-purple/10 text-brand-purpleDeep font-semibold text-xs hover:bg-brand-purple hover:text-white transition-all">
+                            <i class="fa-solid fa-play mr-1.5"></i> Ver Video en la Web
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Video Item 2: Reflexión y Motivación -->
+                <div class="glass-card rounded-3xl overflow-hidden border border-brand-lilac/60 glow-hover flex flex-col justify-between">
+                    <div>
+                        <div class="relative group cursor-pointer" onclick="playVideoModal('vDyDvbXqmGc', 'Reflexión y motivación estudiantil')">
+                            <img src="https://img.youtube.com/vi/vDyDvbXqmGc/hqdefault.jpg" alt="Reflexión y Motivación" class="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300" onerror="this.src='https://placehold.co/600x400/8DAA91/FFFFFF?text=Reflexion+y+Motivacion'">
+                            <div class="absolute inset-0 bg-black/30 flex items-center justify-center group-hover:bg-black/20 transition-all">
+                                <div class="w-14 h-14 rounded-full bg-white/90 text-brand-purpleDeep flex items-center justify-center text-xl shadow-lg group-hover:scale-110 transition-transform">
+                                    <i class="fa-solid fa-play ml-1"></i>
+                                </div>
+                            </div>
+                            <span class="absolute top-3 left-3 px-3 py-1 rounded-full bg-emerald-100 text-emerald-800 text-xs font-bold">Reflexión</span>
+                        </div>
+                        <div class="p-6">
+                            <h3 class="font-bold text-gray-900 text-base mb-2">Reflexión y motivación a tu ritmo</h3>
+                            <p class="text-xs text-gray-600 leading-relaxed">Un recordatorio reconfortante sobre el valor de tu esfuerzo personal más allá de la nota final.</p>
+                        </div>
+                    </div>
+                    <div class="px-6 pb-6 pt-0">
+                        <button onclick="playVideoModal('vDyDvbXqmGc', 'Reflexión y motivación estudiantil')" class="w-full py-2.5 rounded-full bg-brand-sage/20 text-brand-sageDark font-semibold text-xs hover:bg-brand-sageDark hover:text-white transition-all">
+                            <i class="fa-solid fa-play mr-1.5"></i> Ver Video en la Web
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Video Item 3: Música Relajante -->
+                <div class="glass-card rounded-3xl overflow-hidden border border-brand-lilac/60 glow-hover flex flex-col justify-between">
+                    <div>
+                        <div class="relative group cursor-pointer" onclick="playVideoModal('FCIj7yPM6k8', 'Música relajante para concentrarse')">
+                            <img src="https://img.youtube.com/vi/FCIj7yPM6k8/hqdefault.jpg" alt="Música Relajante" class="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300" onerror="this.src='https://placehold.co/600x400/9D7AC7/FFFFFF?text=Musica+Relajante'">
+                            <div class="absolute inset-0 bg-black/30 flex items-center justify-center group-hover:bg-black/20 transition-all">
+                                <div class="w-14 h-14 rounded-full bg-white/90 text-brand-purpleDeep flex items-center justify-center text-xl shadow-lg group-hover:scale-110 transition-transform">
+                                    <i class="fa-solid fa-play ml-1"></i>
+                                </div>
+                            </div>
+                            <span class="absolute top-3 left-3 px-3 py-1 rounded-full bg-purple-100 text-purple-800 text-xs font-bold">Relajación</span>
+                        </div>
+                        <div class="p-6">
+                            <h3 class="font-bold text-gray-900 text-base mb-2">Música relajante para concentrarse</h3>
+                            <p class="text-xs text-gray-600 leading-relaxed">Sonidos ambientalizados y ritmos tranquilos para crear una atmósfera de estudio calmada.</p>
+                        </div>
+                    </div>
+                    <div class="px-6 pb-6 pt-0">
+                        <button onclick="playVideoModal('FCIj7yPM6k8', 'Música relajante para concentrarse')" class="w-full py-2.5 rounded-full bg-brand-lilac/40 text-brand-purpleDeep font-semibold text-xs hover:bg-brand-purpleDeep hover:text-white transition-all">
+                            <i class="fa-solid fa-play mr-1.5"></i> Ver Video en la Web
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 5: Sistema Interactivo de Frases & Temporizador ("Un mensaje para ti") -->
+    <section id="temporizador" class="py-16 bg-white">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-10">
+                <span class="text-xs font-bold text-brand-sageDark uppercase tracking-widest bg-brand-sageLight px-3 py-1 rounded-full">Estudio Consciente</span>
+                <h2 class="font-playfair text-3xl sm:text-4xl font-bold text-brand-purpleDeep mt-2 mb-2">Un mensaje para ti</h2>
+                <p class="text-gray-600 text-sm max-w-lg mx-auto">Un temporizador amigable de 30 minutos para acompañar tus bloques de estudio con mensajes cálidos y realistas que cuidan tu bienestar.</p>
+            </div>
+
+            <div class="glass-card rounded-3xl p-6 sm:p-10 border border-brand-lilac text-center relative overflow-hidden shadow-lg">
+                <!-- Dynamic Motivational Banner -->
+                <div class="min-h-[90px] flex items-center justify-center bg-brand-lilacLight/60 rounded-2xl p-4 sm:p-6 mb-8 border border-brand-lilac/40">
+                    <p id="motivational-phrase-display" class="font-playfair italic text-lg sm:text-2xl text-brand-purpleDeep font-semibold transition-opacity duration-500">
+                        “Una cosa a la vez.”
+                    </p>
+                </div>
+
+                <!-- Big Timer Display -->
+                <div class="font-mono text-5xl sm:text-7xl font-bold text-gray-900 tracking-wider mb-8" id="timer-display">
+                    30:00
+                </div>
+
+                <!-- Timer Controls -->
+                <div class="flex flex-wrap items-center justify-center gap-3" id="timer-controls-initial">
+                    <button onclick="startTimer()" id="btn-start" class="px-7 py-3 rounded-full bg-brand-purpleDeep text-white font-semibold text-sm hover:bg-brand-purple transition-all shadow-md flex items-center gap-2">
+                        <i class="fa-solid fa-play"></i> Iniciar Bloque (30 min)
+                    </button>
+                    <button onclick="pauseTimer()" id="btn-pause" class="hidden px-6 py-3 rounded-full bg-amber-500 text-white font-semibold text-sm hover:bg-amber-600 transition-all shadow-md flex items-center gap-2">
+                        <i class="fa-solid fa-pause"></i> Pausar
+                    </button>
+                    <button onclick="resumeTimer()" id="btn-resume" class="hidden px-6 py-3 rounded-full bg-emerald-600 text-white font-semibold text-sm hover:bg-emerald-700 transition-all shadow-md flex items-center gap-2">
+                        <i class="fa-solid fa-play"></i> Continuar
+                    </button>
+                    <button onclick="resetTimer()" id="btn-reset" class="px-5 py-3 rounded-full bg-gray-100 text-gray-700 font-semibold text-sm hover:bg-gray-200 transition-all flex items-center gap-2">
+                        <i class="fa-solid fa-rotate-left"></i> Reiniciar
+                    </button>
+                </div>
+
+                <!-- End of Timer Banner State (00:00) -->
+                <div id="timer-finish-message" class="hidden mt-6 p-6 bg-brand-sageLight rounded-2xl border border-brand-sage">
+                    <h3 class="font-playfair text-xl font-bold text-brand-sageDark mb-2">¡Terminaste este bloque! 🎉</h3>
+                    <p class="text-sm text-gray-700 mb-6">Ahora puedes darte un descanso reconfortante sin culpa.</p>
+                    <div class="flex flex-wrap justify-center gap-4">
+                        <button onclick="takeBreakChoice()" class="px-6 py-3 rounded-full bg-brand-sageDark text-white font-semibold text-sm hover:bg-emerald-900 transition-all">
+                            🍵 Tomar un descanso
+                        </button>
+                        <button onclick="restart30MinBlock()" class="px-6 py-3 rounded-full bg-brand-purple text-white font-semibold text-sm hover:bg-brand-purpleDeep transition-all">
+                            ⏱️ Empezar otros 30 minutos
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 6: Espacio de Autocuidado ("Un paso a la vez") -->
+    <section id="autocuidado" class="py-16 bg-brand-warmWhite border-t border-brand-lilac/30">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-2xl mx-auto mb-12">
+                <span class="text-xs font-bold text-brand-purple uppercase tracking-wider">Hábitos & Salud Mental</span>
+                <h2 class="font-playfair text-3xl sm:text-4xl font-bold text-brand-purpleDeep mt-1 mb-2">Un paso a la vez</h2>
+                <p class="text-gray-600 text-sm">Pequeñas micro-actividades sencillas para integrar a tu rutina universitaria diaria.</p>
+            </div>
+
+            <!-- Self care grid -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- Card 1: Pausas Conscientes -->
+                <div class="glass-card p-6 rounded-3xl border border-brand-lilac/50 glow-hover">
+                    <div class="text-3xl mb-3">🧘🏽‍♀️</div>
+                    <h3 class="font-bold text-gray-900 text-lg mb-2">Pausas conscientes</h3>
+                    <p class="text-xs text-gray-600 leading-relaxed mb-4">Detente 3 minutos. Cierra los ojos y haz 3 respiraciones profundas antes de cambiar de tarea o materia.</p>
+                    <button onclick="openBreathingModal()" class="text-xs font-bold text-brand-purple hover:underline flex items-center gap-1">
+                        Abrir ejercicio de respiración <i class="fa-solid fa-angle-right"></i>
+                    </button>
+                </div>
+
+                <!-- Card 2: Organización de Pendientes -->
+                <div class="glass-card p-6 rounded-3xl border border-brand-lilac/50 glow-hover">
+                    <div class="text-3xl mb-3">📝</div>
+                    <h3 class="font-bold text-gray-900 text-lg mb-2">Organización priorizada</h3>
+                    <p class="text-xs text-gray-600 leading-relaxed mb-4">Anota solo 3 cosas importantes para hoy. Todo lo demás puede esperar al siguiente bloque.</p>
+                    <span class="inline-block text-xs font-semibold px-2.5 py-1 bg-brand-lilacLight text-brand-purpleDeep rounded-full">Reducción de carga</span>
+                </div>
+
+                <!-- Card 3: Descanso y Desconexión -->
+                <div class="glass-card p-6 rounded-3xl border border-brand-lilac/50 glow-hover">
+                    <div class="text-3xl mb-3">🌙</div>
+                    <h3 class="font-bold text-gray-900 text-lg mb-2">Descanso sin culpa</h3>
+                    <p class="text-xs text-gray-600 leading-relaxed mb-4">El descanso no es un premio por terminar todo; es la gasolina para tu mente y cuerpo.</p>
+                    <span class="inline-block text-xs font-semibold px-2.5 py-1 bg-brand-sageLight text-brand-sageDark rounded-full">Salud física</span>
+                </div>
+
+                <!-- Card 4: Reconocimiento de Emociones -->
+                <div class="glass-card p-6 rounded-3xl border border-brand-lilac/50 glow-hover">
+                    <div class="text-3xl mb-3">💬</div>
+                    <h3 class="font-bold text-gray-900 text-lg mb-2">Validar lo que sientes</h3>
+                    <p class="text-xs text-gray-600 leading-relaxed mb-4">No te reprimas por estar cansado/a. Decir "hoy me cuesta estudiar" es un acto de honestidad contigo.</p>
+                    <a href="#checkin" class="text-xs font-bold text-brand-purple hover:underline flex items-center gap-1">
+                        Hacer check-in <i class="fa-solid fa-angle-right"></i>
+                    </a>
+                </div>
+
+                <!-- Card 5: Establecimiento de Límites -->
+                <div class="glass-card p-6 rounded-3xl border border-brand-lilac/50 glow-hover">
+                    <div class="text-3xl mb-3">🛡️</div>
+                    <h3 class="font-bold text-gray-900 text-lg mb-2">Límites académicos</h3>
+                    <p class="text-xs text-gray-600 leading-relaxed mb-4">Define una hora fija para cerrar los libros por la noche. Tu sueño influye directamente en tu retención.</p>
+                    <span class="inline-block text-xs font-semibold px-2.5 py-1 bg-amber-50 text-amber-800 rounded-full">Higiene del sueño</span>
+                </div>
+
+                <!-- Card 6: Búsqueda de Apoyo -->
+                <div class="glass-card p-6 rounded-3xl border border-brand-lilac/50 glow-hover">
+                    <div class="text-3xl mb-3">🤝</div>
+                    <h3 class="font-bold text-gray-900 text-lg mb-2">Pedir ayuda a tiempo</h3>
+                    <p class="text-xs text-gray-600 leading-relaxed mb-4">Compartir tus cargas académicas con un amigo o un profesional reduce drásticamente el peso emocional.</p>
+                    <a href="#ayuda" class="text-xs font-bold text-red-700 hover:underline flex items-center gap-1">
+                        Ver apoyo profesional <i class="fa-solid fa-angle-right"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 7: Seguimiento Emocional (Journaling Local) -->
+    <section id="seguimiento" class="py-16 bg-white border-y border-brand-lilac/30">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-10">
+                <span class="text-xs font-bold text-brand-purple uppercase tracking-wider">Historial Privado</span>
+                <h2 class="font-playfair text-3xl font-bold text-brand-purpleDeep mt-1 mb-2">Mi Registro Emocional</h2>
+                <p class="text-gray-600 text-sm">Visualiza tus check-ins guardados voluntariamente en tu navegador. Tus datos nunca salen de tu dispositivo.</p>
+            </div>
+
+            <div class="glass-card rounded-3xl p-6 sm:p-8 border border-brand-lilac shadow-sm">
+                <div class="flex items-center justify-between mb-6 pb-4 border-b border-brand-lilac/40">
+                    <h3 class="font-bold text-gray-800 text-base">Registros Recientes</h3>
+                    <button onclick="clearJournalLogs()" class="text-xs px-3 py-1.5 rounded-full border border-red-200 text-red-600 hover:bg-red-50 transition-all">
+                        <i class="fa-solid fa-trash-can mr-1"></i> Borrar todos mis datos
+                    </button>
+                </div>
+
+                <!-- Logs Table / Container -->
+                <div id="journal-logs-list" class="space-y-3 min-h-[120px]">
+                    <!-- Rendered by JS -->
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 8: Apoyo Profesional, Seguridad & Líneas de Ayuda en Perú -->
+    <section id="ayuda" class="py-16 bg-gradient-to-b from-brand-warmWhite to-red-50/40">
+        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="glass-card rounded-3xl p-8 sm:p-10 border border-red-200 shadow-lg relative overflow-hidden">
+                <div class="flex items-center gap-3 mb-4">
+                    <div class="w-10 h-10 rounded-full bg-red-100 text-red-600 flex items-center justify-center font-bold text-xl">
+                        <i class="fa-solid fa-shield-halved"></i>
+                    </div>
+                    <div>
+                        <h2 class="font-playfair text-2xl sm:text-3xl font-bold text-gray-900">Apoyo Profesional & Seguridad</h2>
+                        <p class="text-xs sm:text-sm text-gray-600">Información importante sobre la plataforma e instituciones de ayuda en Perú.</p>
+                    </div>
+                </div>
+
+                <div class="bg-amber-50/80 border-l-4 border-amber-400 p-4 rounded-r-2xl mb-8 text-xs sm:text-sm text-amber-900 leading-relaxed">
+                    <strong>Nota aclaratoria de seguridad:</strong> "Detrás del 1%" es una iniciativa de acompañamiento psicoeducativo y contención inicial. <strong>No realiza diagnósticos clínicos ni reemplaza la atención de un profesional de la psicología o psiquiatría.</strong>
+                </div>
+
+                <h3 class="font-bold text-gray-900 text-base mb-4">Líneas telefónicas de apoyo gratuito e inmediato en el Perú:</h3>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <!-- Contact 1: MINSA -->
+                    <div class="bg-white p-5 rounded-2xl border border-red-100 flex items-start gap-4">
+                        <div class="w-12 h-12 rounded-full bg-red-600 text-white flex items-center justify-center font-bold text-lg flex-shrink-0">
+                            113
+                        </div>
+                        <div>
+                            <span class="text-xs uppercase font-bold text-red-600 tracking-wide">MINSA - Opción 5</span>
+                            <h4 class="font-bold text-gray-900 text-sm">Línea de Salud Mental Perú</h4>
+                            <p class="text-xs text-gray-600 mt-1">Atención gratuita las 24 horas, los 365 días del año. Orientación con psicólogos profesionales.</p>
+                        </div>
+                    </div>
+
+                    <!-- Contact 2: Emergencias -->
+                    <div class="bg-white p-5 rounded-2xl border border-red-100 flex items-start gap-4">
+                        <div class="w-12 h-12 rounded-full bg-gray-800 text-white flex items-center justify-center font-bold text-lg flex-shrink-0">
+                            105
+                        </div>
+                        <div>
+                            <span class="text-xs uppercase font-bold text-gray-700 tracking-wide">Central PNP / SAMU (106)</span>
+                            <h4 class="font-bold text-gray-900 text-sm">Emergencias e Intervención</h4>
+                            <p class="text-xs text-gray-600 mt-1">En caso de peligro inmediato o crisis de violencia extrema.</p>
+                        </div>
+                    </div>
+
+                    <!-- Contact 3: MIMP Linea 100 -->
+                    <div class="bg-white p-5 rounded-2xl border border-red-100 flex items-start gap-4">
+                        <div class="w-12 h-12 rounded-full bg-purple-700 text-white flex items-center justify-center font-bold text-lg flex-shrink-0">
+                            100
+                        </div>
+                        <div>
+                            <span class="text-xs uppercase font-bold text-purple-700 tracking-wide">MIMP - Línea 100</span>
+                            <h4 class="font-bold text-gray-900 text-sm">Orientación en Situaciones de Violencia</h4>
+                            <p class="text-xs text-gray-600 mt-1">Servicio gratuito para brindar apoyo emocional y orientación legal.</p>
+                        </div>
+                    </div>
+
+                    <!-- Contact 4: CSMC -->
+                    <div class="bg-white p-5 rounded-2xl border border-red-100 flex items-start gap-4">
+                        <div class="w-12 h-12 rounded-full bg-emerald-600 text-white flex items-center justify-center font-bold text-lg flex-shrink-0">
+                            CSMC
+                        </div>
+                        <div>
+                            <span class="text-xs uppercase font-bold text-emerald-700 tracking-wide">Centros de Salud Mental</span>
+                            <h4 class="font-bold text-gray-900 text-sm">CSMC a Nivel Nacional</h4>
+                            <p class="text-xs text-gray-600 mt-1">Más de 240 centros comunitarios en todos los departamentos del Perú.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 9: Footer & Privacy Notice -->
+    <footer class="bg-brand-purpleDeep text-white py-12 border-t border-brand-purple">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center sm:text-left">
+            <div class="grid grid-cols-1 sm:grid-cols-3 gap-8 mb-8">
+                <div>
+                    <h3 class="font-playfair text-xl font-bold mb-2">Detrás del 1%</h3>
+                    <p class="text-xs text-brand-lilac/80 leading-relaxed">Proyecto social peruano dedicado al acompañamiento emocional y la concienciación del agotamiento académico en estudiantes de educación superior.</p>
+                </div>
+                <div>
+                    <h4 class="font-bold text-sm mb-3 text-brand-lilac">Privacidad & Ética</h4>
+                    <ul class="text-xs text-brand-lilac/80 space-y-2">
+                        <li>· No solicitamos nombres ni datos personales sensibles.</li>
+                        <li>· Los check-ins se guardan únicamente de forma local en tu navegador.</li>
+                        <li>· Consentimiento transparente en el uso del Asistente IA.</li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-bold text-sm mb-3 text-brand-lilac">Contacto Social</h4>
+                    <p class="text-xs text-brand-lilac/80 mb-2">Para alianzas universitarias y voluntariados en Perú:</p>
+                    <a href="mailto:contacto@detrasdel1percent.pe" class="text-xs text-white underline hover:text-brand-lilac">contacto@detrasdel1percent.pe</a>
+                </div>
+            </div>
+
+            <div class="pt-8 border-t border-brand-purple/40 text-center text-xs text-brand-lilac/60">
+                <p>© 2026 Detrás del 1%. Diseñado con empatía para la comunidad universitaria de todo el Perú.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- MODAL 1: Video YouTube Modal Container -->
+    <div id="video-modal" class="fixed inset-0 z-50 hidden bg-black/80 backdrop-blur-sm flex items-center justify-center p-4">
+        <div class="bg-white w-full max-w-3xl rounded-3xl overflow-hidden shadow-2xl border border-brand-lilac relative">
+            <div class="bg-brand-purpleDeep px-6 py-4 text-white flex items-center justify-between">
+                <h3 id="video-modal-title" class="font-bold text-sm sm:text-base">Reproduciendo Video</h3>
+                <button onclick="closeVideoModal()" class="text-white hover:text-brand-lilac text-xl p-1">
+                    <i class="fa-solid fa-xmark"></i>
+                </button>
+            </div>
+            <div class="relative w-full pb-[56.25%] bg-black">
+                <iframe id="video-iframe" class="absolute inset-0 w-full h-full" src="" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+        </div>
+    </div>
+
+    <!-- MODAL 2: Breathing Exercise Modal Widget -->
+    <div id="breathing-modal" class="fixed inset-0 z-50 hidden bg-black/70 backdrop-blur-sm flex items-center justify-center p-4">
+        <div class="glass-card bg-white w-full max-w-md rounded-3xl p-8 text-center relative border border-brand-lilac shadow-2xl">
+            <button onclick="closeBreathingModal()" class="absolute top-4 right-4 text-gray-400 hover:text-gray-700 text-xl">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+
+            <h3 class="font-playfair text-2xl font-bold text-brand-purpleDeep mb-2">Respiración 4-7-8</h3>
+            <p class="text-xs text-gray-600 mb-8">Inhala 4s · Sostén 7s · Exhala 8s</p>
+
+            <div class="relative w-40 h-40 mx-auto mb-8 flex items-center justify-center">
+                <!-- Breathing Circle -->
+                <div id="breathe-circle" class="w-28 h-28 rounded-full bg-brand-lilac/70 border-4 border-brand-purple flex items-center justify-center transition-all duration-1000">
+                    <span id="breathe-text" class="font-bold text-brand-purpleDeep text-sm">Inhala...</span>
+                </div>
+            </div>
+
+            <button onclick="toggleBreathingAnimation()" id="breathe-toggle-btn" class="px-6 py-2.5 rounded-full bg-brand-purple text-white text-xs font-bold hover:bg-brand-purpleDeep transition-all">
+                Iniciar Respiración Guiada
+            </button>
+        </div>
+    </div>
+
+    <!-- MODAL 3: Gemini API Key Setup Modal -->
+    <div id="api-modal" class="fixed inset-0 z-50 hidden bg-black/60 backdrop-blur-sm flex items-center justify-center p-4">
+        <div class="bg-white w-full max-w-md rounded-3xl p-6 shadow-2xl border border-brand-lilac relative">
+            <button onclick="toggleApiKeyModal()" class="absolute top-4 right-4 text-gray-400 hover:text-gray-700 text-xl">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+
+            <h3 class="font-playfair text-xl font-bold text-brand-purpleDeep mb-2">Configuración de IA Gemini</h3>
+            <p class="text-xs text-gray-600 mb-4 leading-relaxed">
+                El asistente utiliza la API directa de Google Gemini para responder en tiempo real con empatía. Si deseas usar tu propia clave API personal de Gemini, puedes guardarla aquí (se almacena localmente en tu navegador).
+            </p>
+
+            <div class="mb-4">
+                <label class="block text-xs font-bold text-gray-700 mb-1">Tu API Key de Gemini:</label>
+                <input type="password" id="user-api-key-input" placeholder="AIzaSy..." class="w-full px-4 py-2.5 rounded-xl border border-brand-lilac text-xs outline-none focus:ring-2 focus:ring-brand-purple">
+            </div>
+
+            <div class="flex justify-end gap-2">
+                <button onclick="saveUserApiKey()" class="px-5 py-2 rounded-full bg-brand-purple text-white text-xs font-semibold hover:bg-brand-purpleDeep">
+                    Guardar Clave
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- JAVASCRIPT CODE -->
+    <script>
+        /* ==========================================================================
+           CONFIGURACIÓN EDITABLE DE RECURSOS & FRASES (Fácilmente modificable)
+           ========================================================================== */
+        
+        // 1. ARRAY EDITABLE DE FRASES MOTIVACIONALES DEL TEMPORIZADOR
+        // Puedes agregar, quitar o cambiar las frases aquí:
+        const FRASES_ESTUDIO = [
+            "“Una cosa a la vez.”",
+            "“No tienes que terminarlo todo hoy.”",
+            "“Descansar también es avanzar.”",
+            "“Haz lo que puedas con la energía que tienes hoy.”",
+            "“Tu valor no depende de tu productividad universitaria.”",
+            "“Respira. Puedes continuar a tu ritmo.”",
+            "“Avanzar lento sigue siendo avanzar.”",
+            "“Escuchar a tu cuerpo es una decisión inteligente.”"
+        ];
+
+        // 2. CONFIGURACIÓN DEL TEMPORIZADOR
+        // Tiempo en segundos (30 minutos = 1800 segundos)
+        const TIEMPO_BLOQUE_SEGUNDOS = 30 * 60; 
+        // Intervalo de cambio de frases en segundos (4 minutos = 240 segundos)
+        const INTERVALO_CAMBIO_FRASE_SEGUNDOS = 4 * 60;
+
+        /* ==========================================================================
+           ESTADO Y LÓGICA DEL TEMPORIZADOR
+           ========================================================================== */
+        let timerSecondsLeft = TIEMPO_BLOQUE_SEGUNDOS;
+        let timerInterval = null;
+        let phraseInterval = null;
+        let currentPhraseIndex = 0;
+
+        function updateTimerDisplay() {
+            const minutes = Math.floor(timerSecondsLeft / 60);
+            const seconds = timerSecondsLeft % 60;
+            const displayStr = `${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
+            document.getElementById('timer-display').innerText = displayStr;
+        }
+
+        function rotateMotivationalPhrase() {
+            const phraseElement = document.getElementById('motivational-phrase-display');
+            phraseElement.style.opacity = '0';
+            setTimeout(() => {
+                currentPhraseIndex = (currentPhraseIndex + 1) % FRASES_ESTUDIO.length;
+                phraseElement.innerText = FRASES_ESTUDIO[currentPhraseIndex];
+                phraseElement.style.opacity = '1';
+            }, 500);
+        }
+
+        function startTimer() {
+            document.getElementById('btn-start').classList.add('hidden');
+            document.getElementById('btn-pause').classList.remove('hidden');
+            document.getElementById('timer-finish-message').classList.add('hidden');
+
+            timerInterval = setInterval(() => {
+                if (timerSecondsLeft > 0) {
+                    timerSecondsLeft--;
+                    updateTimerDisplay();
+
+                    // Cambia la frase motivacional periódicamente
+                    if (timerSecondsLeft % INTERVALO_CAMBIO_FRASE_SEGUNDOS === 0 && timerSecondsLeft !== TIEMPO_BLOQUE_SEGUNDOS) {
+                        rotateMotivationalPhrase();
+                    }
+                } else {
+                    // Fin del tiempo 00:00
+                    clearInterval(timerInterval);
+                    document.getElementById('btn-pause').classList.add('hidden');
+                    document.getElementById('btn-resume').classList.add('hidden');
+                    document.getElementById('timer-finish-message').classList.remove('hidden');
+                }
+            }, 1000);
+        }
+
+        function pauseTimer() {
+            clearInterval(timerInterval);
+            document.getElementById('btn-pause').classList.add('hidden');
+            document.getElementById('btn-resume').classList.remove('hidden');
+        }
+
+        function resumeTimer() {
+            document.getElementById('btn-resume').classList.add('hidden');
+            document.getElementById('btn-pause').classList.remove('hidden');
+            startTimer();
+        }
+
+        function resetTimer() {
+            clearInterval(timerInterval);
+            timerSecondsLeft = TIEMPO_BLOQUE_SEGUNDOS;
+            updateTimerDisplay();
+            document.getElementById('btn-start').classList.remove('hidden');
+            document.getElementById('btn-pause').classList.add('hidden');
+            document.getElementById('btn-resume').classList.add('hidden');
+            document.getElementById('timer-finish-message').classList.add('hidden');
+        }
+
+        function takeBreakChoice() {
+            alert('¡Excelente elección! Ve por un vaso de agua, estira el cuerpo y aléjate de la pantalla por 10 o 15 minutos.');
+            resetTimer();
+        }
+
+        function restart30MinBlock() {
+            resetTimer();
+            startTimer();
+        }
+
+
+        /* ==========================================================================
+           CHECK-IN EMOCIONAL INTERACTIVO
+           ========================================================================== */
+        let currentSelectedEmotion = null;
+
+        function selectEmotion(name, emoji, description) {
+            currentSelectedEmotion = { name, emoji, description };
+            
+            // Highlight selected card visual
+            const cards = document.querySelectorAll('.emotion-card');
+            cards.forEach(card => {
+                card.classList.remove('border-brand-purple', 'bg-brand-lilacLight/60', 'ring-2', 'ring-brand-purple');
+            });
+
+            event.currentTarget.classList.add('border-brand-purple', 'bg-brand-lilacLight/60', 'ring-2', 'ring-brand-purple');
+
+            // Show reflection details
+            document.getElementById('selected-emoji').innerText = emoji;
+            document.getElementById('selected-emotion-title').innerText = name;
+            document.getElementById('selected-emotion-desc').innerText = description;
+            document.getElementById('reflection-container').classList.remove('hidden');
+
+            // Smooth scroll down to reflection box
+            document.getElementById('reflection-container').scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+        }
+
+        function saveCheckinLog() {
+            if (!currentSelectedEmotion) return;
+
+            const time = document.getElementById('ref-time').value || 'Sin especificar';
+            const cause = document.getElementById('ref-cause').value || 'Sin especificar';
+            const need = document.getElementById('ref-need').value;
+
+            const newLog = {
+                id: Date.now(),
+                date: new Date().toLocaleDateString('es-PE', { day: 'numeric', month: 'short', hour: '2-digit', minute: '2-digit' }),
+                emotion: currentSelectedEmotion.name,
+                emoji: currentSelectedEmotion.emoji,
+                cause: cause,
+                need: need
+            };
+
+            const existingLogs = JSON.parse(localStorage.getItem('detras1percent_logs') || '[]');
+            existingLogs.unshift(newLog);
+            localStorage.setItem('detras1percent_logs', JSON.stringify(existingLogs));
+
+            renderJournalLogs();
+            alert('¡Check-in guardado con éxito en tu dispositivo!');
+        }
+
+        function renderJournalLogs() {
+            const container = document.getElementById('journal-logs-list');
+            const logs = JSON.parse(localStorage.getItem('detras1percent_logs') || '[]');
+
+            if (logs.length === 0) {
+                container.innerHTML = `
+                    <div class="text-center py-6 text-gray-400 text-xs">
+                        Aún no has guardado registros emocionales. Realiza tu primer Check-in para observarlo aquí.
+                    </div>
+                `;
+                return;
+            }
+
+            container.innerHTML = logs.map(log => `
+                <div class="p-4 bg-white rounded-2xl border border-brand-lilac/50 flex flex-col sm:flex-row sm:items-center justify-between gap-2 text-xs">
+                    <div class="flex items-center gap-3">
+                        <span class="text-2xl">${log.emoji}</span>
+                        <div>
+                            <span class="font-bold text-gray-800 text-sm">${log.emotion}</span>
+                            <span class="text-gray-400 ml-2">(${log.date})</span>
+                            <p class="text-gray-600 mt-0.5">Necesidad identificada: <strong class="text-brand-purpleDeep">${log.need}</strong></p>
+                        </div>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        function clearJournalLogs() {
+            if (confirm('¿Estás seguro/a de eliminar todos tus registros emocionales locales?')) {
+                localStorage.removeItem('detras1percent_logs');
+                renderJournalLogs();
+            }
+        }
+
+        function passToChat() {
+            if (!currentSelectedEmotion) return;
+            const input = document.getElementById('chat-input');
+            input.value = `Hola, me siento ${currentSelectedEmotion.name}. Necesito ${document.getElementById('ref-need').value.toLowerCase()}.`;
+        }
+
+
+        /* ==========================================================================
+           ASISTENTE CONVERSACIONAL INTEGRADO CON GEMINI API
+           ========================================================================== */
+        let chatHistory = [];
+
+        function getApiKey() {
+            return localStorage.getItem('detras1percent_gemini_key') || "";
+        }
+
+        function toggleApiKeyModal() {
+            document.getElementById('api-modal').classList.toggle('hidden');
+        }
+
+        function saveUserApiKey() {
+            const key = document.getElementById('user-api-key-input').value.trim();
+            localStorage.setItem('detras1percent_gemini_key', key);
+            toggleApiKeyModal();
+            alert('Clave API guardada en el navegador.');
+        }
+
+        function appendMessage(sender, text) {
+            const container = document.getElementById('chat-messages');
+            const msgDiv = document.createElement('div');
+            
+            if (sender === 'user') {
+                msgDiv.className = 'flex justify-end';
+                msgDiv.innerHTML = `
+                    <div class="bg-brand-purple text-white p-3.5 sm:p-4 rounded-2xl rounded-tr-none max-w-sm sm:max-w-md shadow-sm leading-relaxed">
+                        ${text}
+                    </div>
+                `;
+            } else {
+                msgDiv.className = 'flex gap-3 max-w-md';
+                msgDiv.innerHTML = `
+                    <div class="w-8 h-8 rounded-full bg-brand-lilac/70 flex items-center justify-center text-brand-purple text-xs flex-shrink-0 mt-1">
+                        <i class="fa-solid fa-robot"></i>
+                    </div>
+                    <div class="bg-white p-3.5 sm:p-4 rounded-2xl rounded-tl-none border border-brand-lilac/40 shadow-sm text-gray-700 leading-relaxed">
+                        ${text}
+                    </div>
+                `;
+            }
+
+            container.appendChild(msgDiv);
+            container.scrollTop = container.scrollHeight;
+        }
+
+        function sendQuickPrompt(promptText) {
+            document.getElementById('chat-input').value = promptText;
+            document.getElementById('chat-form').dispatchEvent(new Event('submit'));
+        }
+
+        async function handleChatSubmit(e) {
+            e.preventDefault();
+            const input = document.getElementById('chat-input');
+            const userMsg = input.value.trim();
+            if (!userMsg) return;
+
+            appendMessage('user', userMsg);
+            input.value = '';
+
+            // Check safety keywords for instant crisis helpline recommendation
+            const crisisKeywords = ['suicid', 'matarm', 'quitarme la vida', 'no quiero vivir', 'autolesi'];
+            if (crisisKeywords.some(kw => userMsg.toLowerCase().includes(kw))) {
+                appendMessage('bot', `
+                    <div class="text-red-700 font-semibold mb-2">Te escucho y tu vida es verdaderamente valiosa.</div>
+                    Siento mucho que estés atravesando por un dolor tan grande. Por favor, no te quedes solo/a en este momento. Comunícate de inmediato con la <strong>Línea 113 (Opción 5) del MINSA Perú</strong> o acude al Centro de Salud Mental Comunitaria más cercano. Hay personas dispuestas a escucharte y apoyarte en este instante.
+                `);
+                return;
+            }
+
+            // Render Loading Indicator
+            const loadingDiv = document.createElement('div');
+            loadingDiv.id = 'chat-loading';
+            loadingDiv.className = 'flex gap-3 max-w-md';
+            loadingDiv.innerHTML = `
+                <div class="w-8 h-8 rounded-full bg-brand-lilac/70 flex items-center justify-center text-brand-purple text-xs flex-shrink-0">
+                    <i class="fa-solid fa-spinner animate-spin"></i>
+                </div>
+                <div class="bg-white px-4 py-2 rounded-2xl border border-brand-lilac/40 text-xs text-gray-400 flex items-center gap-1">
+                    Escribiendo...
+                </div>
+            `;
+            document.getElementById('chat-messages').appendChild(loadingDiv);
+
+            // Call Gemini API via fetch
+            try {
+                const systemPrompt = `
+                    Eres el Asistente Empático de la plataforma social peruana 'Detrás del 1%'. Tu misión es acompañar a estudiantes universitarios de Perú que sufren de cansancio, estrés, saturación académica o desmotivación.
+                    Reglas fundamentales:
+                    1. Sé cercano/a, cálido/a, empático/a y sin juzgar. Utiliza español peruano universitario amigable (respetuoso).
+                    2. Valida primero las emociones del estudiante antes de ofrecer cualquier sugerencia.
+                    3. Haz preguntas abiertas cortas para entender mejor su situación.
+                    4. Propón acciones pequeñas, alcanzables y realistas (micro-pasos).
+                    5. NUNCA des diagnósticos clínicos ni te hagas pasar por psicólogo/a clínico.
+                    6. Evita la positividad tóxica o frases vacías como "¡Tú puedes con todo!".
+                `;
+
+                chatHistory.push({ role: 'user', parts: [{ text: userMsg }] });
+
+                const apiKey = getApiKey();
+                const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-3-flash-preview:generateContent?key=${apiKey}`;
+
+                const payload = {
+                    contents: chatHistory,
+                    systemInstruction: { parts: [{ text: systemPrompt }] }
+                };
+
+                const response = await fetch(apiUrl, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(payload)
+                });
+
+                const data = await response.json();
+                document.getElementById('chat-loading')?.remove();
+
+                if (data.candidates && data.candidates[0]?.content?.parts?.[0]?.text) {
+                    const botReply = data.candidates[0].content.parts[0].text;
+                    chatHistory.push(data.candidates[0].content);
+                    appendMessage('bot', botReply);
+                } else {
+                    appendMessage('bot', 'Gracias por compartirlo conmigo. Recuerda avanzar un paso a la vez; si sientes que el cansancio te supera, date permiso para hacer una pausa de 15 minutos sin culpa.');
+                }
+            } catch (err) {
+                console.error('Chat error:', err);
+                document.getElementById('chat-loading')?.remove();
+                appendMessage('bot', 'Entiendo lo que mencionas. Recuerda que la universidad es solo un aspecto de tu vida y que tu salud mental siempre va primero. ¿Te ayudaría tomarte una pausa de 10 minutos ahora?');
+            }
+        }
+
+
+        /* ==========================================================================
+           REPRODUCTOR MODAL DE VIDEOS DE YOUTUBE
+           ========================================================================== */
+        function playVideoModal(videoId, title) {
+            document.getElementById('video-modal-title').innerText = title;
+            document.getElementById('video-iframe').src = `https://www.youtube.com/embed/${videoId}?autoplay=1`;
+            document.getElementById('video-modal').classList.remove('hidden');
+        }
+
+        function closeVideoModal() {
+            document.getElementById('video-iframe').src = '';
+            document.getElementById('video-modal').classList.add('hidden');
+        }
+
+
+        /* ==========================================================================
+           WIDGET DE RESPIRACIÓN GUIADA
+           ========================================================================== */
+        let isBreathing = false;
+        let breatheTimer = null;
+
+        function openBreathingModal() {
+            document.getElementById('breathing-modal').classList.remove('hidden');
+        }
+
+        function closeBreathingModal() {
+            document.getElementById('breathing-modal').classList.add('hidden');
+            stopBreathingAnimation();
+        }
+
+        function toggleBreathingAnimation() {
+            if (isBreathing) {
+                stopBreathingAnimation();
+            } else {
+                startBreathingAnimation();
+            }
+        }
+
+        function startBreathingAnimation() {
+            isBreathing = true;
+            document.getElementById('breathe-toggle-btn').innerText = 'Detener Respiración';
+            const circle = document.getElementById('breathe-circle');
+            const text = document.getElementById('breathe-text');
+
+            const cycle = () => {
+                text.innerText = 'Inhala (4s)';
+                circle.style.transform = 'scale(1.4)';
+                
+                setTimeout(() => {
+                    if (!isBreathing) return;
+                    text.innerText = 'Sostén (7s)';
+                }, 4000);
+
+                setTimeout(() => {
+                    if (!isBreathing) return;
+                    text.innerText = 'Exhala (8s)';
+                    circle.style.transform = 'scale(1)';
+                }, 11000);
+            };
+
+            cycle();
+            breatheTimer = setInterval(cycle, 19000);
+        }
+
+        function stopBreathingAnimation() {
+            isBreathing = false;
+            clearInterval(breatheTimer);
+            document.getElementById('breathe-toggle-btn').innerText = 'Iniciar Respiración Guiada';
+            document.getElementById('breathe-circle').style.transform = 'scale(1)';
+            document.getElementById('breathe-text').innerText = 'Inhala...';
+        }
+
+
+        /* ==========================================================================
+           MENÚ MÓVIL Y INICIALIZACIÓN
+           ========================================================================== */
+        document.getElementById('mobile-menu-btn').addEventListener('click', () => {
+            document.getElementById('mobile-menu').classList.toggle('hidden');
+        });
+
+        window.onload = function() {
+            updateTimerDisplay();
+            renderJournalLogs();
+        };
+    </script>
+</body>
+</html>
